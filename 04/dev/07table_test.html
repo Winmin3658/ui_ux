@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table {
+      margin: 30px auto;
+    }
+
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+
+    th {
+      background-color: aqua;
+      color: brown;
+    }
+
+    th, td {
+      padding: 10px 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <h1 style="text-align: center;">상품 구성</h1>
+      <caption>선물용과 가정용 상품 구성</caption>
+      <cologroup>
+      <col style="background-color:#eee;">
+      <col>
+      <col span="2" style="width:150px;">
+      <col>
+      </cologroup>
+    <table>
+      <thead>
+        <tr>
+          <td>용도</td>
+          <td>중량</td>
+          <td>개수</td>
+          <td>가격</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td rowspan="2">선물용</td>
+          <td>3kg</td>
+          <td>11~16과</td>
+          <td>35,000원</td>
+        </tr>
+        <tr>
+  
+          <td>3kg</td>
+          <td>11~16과</td>
+          <td>35,000원</td>
+        </tr>
+        <tr>
+          <td rowspan="2">가정용</td>
+          <td>3kg</td>
+          <td>11~16과</td>
+          <td>35,000원</td>
+        </tr>
+        <tr>
+          <td>3kg</td>
+          <td>11~16과</td>
+          <td>35,000원</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+
+</html>
