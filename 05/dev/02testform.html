@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="wrap" style="width: 80%; margin: 0 auto;">
+    <form method='get' action='#'>
+      <fieldset>
+        <legend>배송 정보</legend>
+        <ul>
+          <li><label for="name">이름</label> <input type='text' name='name' id="name" maxlength="5" minlength="2" value="홍길동"></li>
+          <li><label for="address">배송 주소</label> <input type='text' name='address' id="address" size="40"></li>
+          <li><label for="email">이메일</label> <input type='email' name='email' id="email" required></li>
+          <li><label for="phone">연락처</label> <input type='number' name='phone' id="phone" placeholder="01012345678" minlength="11"></li>
+        </ul>
+        <input type="submit" value="서버로 전송하기">
+      </fieldset>
+    </form>
+  </div>
+</body>
+
+</html>
