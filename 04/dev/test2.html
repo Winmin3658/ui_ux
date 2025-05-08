@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table {
+      margin: 30px auto;
+    }
+
+    table, th, td {
+      border-collapse: collapse;
+      border: 1px solid black;
+    }
+
+    .day-cell {
+      background-color: antiquewhite;
+    }
+
+    th, td {
+      padding: 10px 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <h1 style="text-align: center;">Advance HTML Table In Hindi</h1>
+    <table>
+      <thead>
+        <tr>
+          <th rowspan="3" class="day-cell">Day</th>
+          <th colspan="3">Seminar</th>
+        </tr>
+        <tr>
+          <th colspan="2">Schedule</th>
+          <th rowspan="2">Topic</th>
+        </tr>
+        <tr>
+          <th>Start</th>
+          <th>End</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <th rowspan="2" class="day-cell">Monday</th>
+          <th rowspan="2">08:00 AM</th>
+          <th rowspan="2">05:00 PM</th>
+          <th>Introduction</th>
+        </tr>
+        <tr>
+          <th>Uses</th>
+        </tr>
+        <tr>
+          <th rowspan="4" class="day-cell">Tuesday</th>
+          <th>08:00 AM</th>
+          <th>11:00 PM</th>
+          <th>-</th>
+        </tr>
+        <tr>
+          <th>11:00 AM</th>
+          <th>02:00 PM</th>
+          <th>Learn</th>
+        </tr>
+        <tr>
+          <th>02:00 PM</th>
+          <th>08:00 PM</th>
+          <th rowspan="2">-</th>
+        </tr>
+        <tr>
+          <th>10:00 AM</th>
+          <th>01:00 PM</th>
+        </tr>
+        <tr>
+          <th class="day-cell">Wed-Fri</th>
+          <th colspan="2">Full Day</th>
+          <th>Practical</th>
+        </tr>
+        <tr>
+          <th class="day-cell">Sat-Sun</th>
+          <th colspan="2">11:00 AM - 05:00 PM</th>
+          <th>Extra Class</th>
+        </tr>
+      </tbody>
+      
+    </table>
+  </div>
+</body>
+
+</html>

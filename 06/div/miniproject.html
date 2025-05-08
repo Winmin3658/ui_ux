@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .red {
+      color: red;
+    }
+    #put, #put th, #put td {
+      border: 1px solid gainsboro;
+      border-collapse: collapse;
+    }
+    #put td:first-child {
+      background-color: #f0f0f0;
+    }
+    #next {
+      display: block;
+      margin: 0 300px;
+    }
+    #zip1, #zip2 {
+      width: 55px;
+    }
+    #addr1, #addr2 {
+      width: 500px;
+    }
+    #tel1, #tel2, #tel3 {
+      width: 30px;
+    }
+    
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <form method="get" action="#">
+      <h3>회원가입</h3>
+      <h4><span class="red">ㆍ</span> 온라인 회원가입 작성</h4>
+      <hr style="border: 1px solid rgb(219, 217, 217);">
+      <p>ㆍ고객님의 정보는 개인정보보호정책에 의해 철저하게 보호됩니다.</p>
+      <hr style="border: 1px solid rgb(219, 217, 217);">
+      <table id="put">
+        <tr>
+          <td>사용자ID <span class="red">*</span></td>
+          <td><input type="text" name="id" id="id"><input type="image" src="./res/id.png" alt="id중복확인"></td>
+        </tr>
+        <tr>
+          <td>비밀번호 <span class="red">*</span></td>
+          <td><input type="text" name="pw" id="pw">ㆍ4~12자리의 영문,숫자,특수문자(!, @, $, %, ^, &, *)만 가능</td>
+        </tr>
+        <tr>
+          <td>비밀번호 확인 <span class="red">*</span></td>
+          <td><input type="text" name="pwcheck" id="pwcheck"></td>
+        </tr>
+        <tr>
+          <td>성명 <span class="red">*</span></td>
+          <td><input type="text" name="name" id="name">ㆍ띄어쓰기 없이 입력, 반드시 실명이어야 합니다!</td>
+        </tr>
+        <tr>
+          <td>E-mail <span class="red">*</span></td>
+          <td><input type="email" name="email" id="email"><span style="font-weight: bolder;"> 메일 수신여부</span><br>
+            ㆍ할인 이벤트정보 및 할인쿠폰, 관심분야 등 꼭 필요한 정보를 빠르게 받아보실 수 있습니다.<br>
+            ㆍ비밀번호 분실시 E-mail로 확인해 드리니, <span style="color: rgba(14, 115, 120, 0.884); font-weight: 700;">정확한 E-mail주소를
+              기입</span>해 주세요.</td>
+        </tr>
+        <tr>
+          <td>우편번호 <span class="red">*</span></td>
+          <td><input type="number" name="zip1" id="zip1" >-<input type="number" name="zip2" id="zip2"><input type="image"
+              src="./res/zip.png" alt="우편번호 검색"></td>
+        <tr>
+          <td>주소 <span class="red">*</span></td>
+          <td><input type="text" name="addr1" id="addr1"><br>
+            <input type="text" name="addr2" id="addr2">
+          </td>
+        <tr>
+          <td>휴대폰번호 <span class="red">*</span></td>
+          <td><input type="number" name="tel1" id="tel1">-<input type="number" name="tel2" id="tel2">-<input type="number"
+              name="tel3" id="tel3"></td>
+        </tr>
+      </table>
+      <input type="image" src="./res/next.png" alt="다음" id="next">
+      <table>
+        <p>로그인</p>
+        <tr>
+          <td><input type="text" name="idfield" id="idfield" placeholder="아이디 or 이메일" style="width: 250px; height: 40px; border: 1px solid rgb(212, 212, 212);"></td>
+          <td rowspan="2"><input type="image" src="./res/login.png" alt="로그인"></td>
+        </tr>
+        <tr>
+          <td><input type="text" name="pwfield" id="pwfield" placeholder="비밀번호"  style="width: 250px; height: 40px; border: 1px solid rgb(212, 212, 212);"></td>
+        </tr>
+      </table>
+      <label for="logincheck1">로그인 상태 유지</label><input type="checkbox" name="logincheck" id="logincheck1">
+      <label for="logincheck2">아이디 저장</label><input type="checkbox" name="logincheck" id="logincheck2"> <br>
+      <p style="border: 1px solid gainsboro; display: inline-block;"> 개인정보보호를 위해 <span style="color: red;">개인 PC에서 사용해주세요.</span></p> <br>
+      <input type="image" src="./res/idfound.png" alt="아아디 찾기">
+      <input type="image" src="./res/pwfound.png" alt="비밀번호 찾기">
+      <input type="image" src="./res/join.png" alt="회원가입">
+    </form>
+  </div>
+</body>
+
+</html>
