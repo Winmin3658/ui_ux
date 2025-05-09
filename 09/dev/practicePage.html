@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: rgb(252, 252, 176);
+    }
+    .wrap {
+      width: 1200px;
+      margin: 0 auto;
+      border: 1px solid black;   
+      padding: 20px;    
+      background-color: rgba(118, 238, 178, 0.2);
+    }
+    /* 헤더 영역 */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px;
+      border: 1px solid rgb(153, 153, 153);
+      margin-bottom: 20px;
+    }
+    .main {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .content {
+      width: 70%;
+      border: 1px solid black;
+    }
+    .content > article {
+      border: 1px solid #333;
+      padding: 10px;
+      margin: 10px;
+    }
+
+    .content > article > section {
+      border: 1px solid #888;
+      padding: 10px;
+      margin-top: 10px;
+      background-color: white;
+    }
+
+    aside {
+      width: 28%;
+      border: 1px solid #333;
+      padding: 10px;
+    }
+
+    aside article {
+      border: 1px solid #888;
+      padding: 10px;
+      margin-top: 10px;
+      background-color: white;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: white;
+      border: 1px solid black;
+      color: red;
+      font-weight: bold;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <p>&lt;header&gt;</p>
+    </header>
+
+    <div class="main">
+      <div class="content">
+        <p>&lt;section&gt;</p>
+        <article>
+          <p>&lt;article&gt;</p>
+          <section>&lt;section 1&gt;</section>
+          <section>&lt;section 2&gt;</section>
+        </article>
+      </div>
+      <aside>
+        <p>&lt;aside&gt;</p>
+        <article>&lt;article&gt;</article>
+        <article>&lt;article&gt;</article>
+        <article>&lt;article&gt;</article>
+      </aside>
+    </div>
+
+    <footer>&lt;footer&gt;</footer>
+  </div>
+</body>
+</html>
