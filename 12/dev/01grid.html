@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      width: 900px;
+      border: 3px solid red;
+      padding: 10px;
+      display: grid;
+      grid-template-columns: repeat(3, 2fr);
+      grid-template-rows: repeat(2, 100px);
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      /* margin-top: -75px;
+      margin-left: -300px; */
+      transform: translate(-50%, -50%);
+      gap: 10px;
+    }
+    .item {
+      border: 1px solid black;
+      /* display: flex;
+      justify-content: center; */
+      align-items: center;
+    }
+    .item:nth-child(2n) {
+      background-color: yellow;
+    }
+    .item:nth-child(2n-1) {
+      background-color: blueviolet;
+    }
+    /* body {
+      height: 100vh;
+      background-color: beige;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    } */
+     body {
+      position: relative;
+      height: 100vh;
+     }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">6</div>
+  </div>
+</body>
+</html>
