@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      background-color: rgb(222, 235, 247);
+      margin:30px 100px;
+    }
+    .wrap {
+      background-color: rgb(237, 237, 237);
+      border: 2px solid rgb(143, 143, 143);
+      width: 480px;
+      font-size: large;
+      padding: 20px;
+      padding-top: 50px;
+    }
+    label {
+      display: inline-block;
+      width: 200px;
+    }
+    #joinBtn {
+      width: 450px;
+      height: 50px;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      background-color: rgb(197, 224, 180);
+      font-size: large;
+      border: none;
+    }
+    #id, #pwd, #pwdCheck, #email1, #email2, #addr1, #addr2 {
+      width: 250px;
+      outline: none;
+      border: none;
+      border-bottom: 3px dotted black;
+      background-color: rgb(237, 237, 237);
+    }
+    #email1, #email2 {
+      width: 115px;
+    }
+    #pwdMessage {
+      margin-left: 200px;
+      font-size: small;
+      color: gray;
+    }
+    #addr2 {
+      margin-left: 200px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <form method='post' action='#'>
+        <label for="id">아이디</label><input type='text' name='id' id="id" required> <br>
+        <label for="pwd">패스워드</label><input type='password' name='pwd' id="pwd" required><br>
+        <span id="pwdMessage"></span> <br>
+        <label for="pwdCheck">패스워드 확인</label><input type='password' name='pwdCheck' id="pwdCheck" required> <br>
+        <label for="email">이메일</label><input type='email' name='email1' id="email1">@<input type='email' name='email2' id="email2"><br>
+        <label for="addr">주소</label><input type='text' name='addr1' id="addr1"> <br>
+        <input type='text' name='addr2' id="addr2">
+        <input type='submit' value='가 입' id="joinBtn">
+    </form>
+  </div>
+  <script>
+    // 1. 객체 찾기
+    let pwd = document.querySelector("#pwd");
+    let pwdMessage = document.querySelector("#pwdMessage");
+    // 2. 이벤트 설정 = 함수 인터페이스 onfocus, onblur
+    // onfocus: 1~4글자 성명 입력, 한글만 입력
+    pwd.onfocus = event => pwdMessage.innerHTML='영문자 대/소문자 특수문자, 숫자 포함 8 ~ 32자';
+  </script>
+</body>
+</html>

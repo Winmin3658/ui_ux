@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    label {
+      display: inline-block;
+      width: 65px;
+      text-align: center;
+    }
+    
+    fieldset {
+      margin-bottom: 20px;
+    }
+    
+    #title, #content {
+      width: 300px;
+    }
+    
+    #content {
+      height: 100px;
+    }
+    
+    #submitBtn {
+      margin-left: 150px;
+      margin-top: 20px;
+    }
+
+    table {
+      margin-top: 20px;
+    }
+    
+    table, th, td {
+      border: 1px solid black;
+    }
+
+    th, .chartTitle {
+      background-color: rgba(255, 160, 122, 0.9);
+      color: white;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    td {
+      background: rgba(255, 255, 147,0.5);
+      color: black;
+    }
+
+    .tdc {
+      width: auto;
+    }
+
+    .num {
+      width: 150px;
+    }
+
+    .tableTitle {
+      width: 4000px;
+    }
+
+    .tableWriter, .tableDate {
+      width: 400px;
+    }
+
+    .tableRead {
+      width: 150px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <h1>포트폴리오 문제</h1>
+    <p>설명: '*'이 붙은 문구 및 현재 작성된 이 문구는 화면구현시 구현을 안해도됩니다. 설명을 위해 작성한 구문입니다.</p>
+    <hr>
+    <p>* 하단의 화면처럼 공지사항 작성하기 폼을 작성하시오. (form의 action속성값은 "insert.no"부여, method속성값은 "post"부여)</p>
+    <fieldset>
+      <legend>공지사항 작성하기</legend>
+      <form method='post' action='insert.no'>
+        <label for="title">제목</label><input type='text' name='title' id="title" placeholder='제목을 입력하시오.' required> <br>
+        <label for="content">내용</label><input type='text' name='content' id="content" placeholder='내용을 입력하시오.' required> <br>
+        <label for="uploadFile">첨부파일</label><input type='file' id="uploadFile" value='파일 선택'>
+        <br>
+        <input type="submit" id="submitBtn" value="작성하기">
+      </form>
+    </fieldset>
+    <hr>
+    <table>
+      <div class="chartTitle">
+        <tr>
+          <th class="num">번호</th>
+          <th colspan="2" class="tableTitle">제목</th>
+          <th class="tableWriter">작성자</th>
+          <th class="tableDate">작성일</th>
+          <th>조회수</th>
+        </tr>
+      </div>
+      <tr>
+        <td class="num">9</td>
+        <td class="tableTitle">공지사항 제목 9</td>
+        <td class="tdc"><input type="button" value="바로가기"></td>
+        <td class="tableWriter">user01</td>
+        <td class="tableDate">2021-03-29</td>
+        <td class="tableRead">34</td>
+      </tr>
+      <tr>
+        <td class="num">6</td>
+        <td class="tableTitle">공지사항 제목 6</td>
+        <td class="tdc"><input type="button" value="바로가기"></td>
+        <td class="tableWriter">answ445</td>
+        <td class="tableDate">2021-03-12</td>
+        <td class="tableRead">67</td>
+      </tr>
+      <tr>
+        <td class="num">3</td>
+        <td class="tableTitle">공지사항 제목 3</td>
+        <td class="tdc"><input type="button" value="바로가기"></td>
+        <td class="tableWriter">tetg12</td>
+        <td class="tableDate">2021-03-01</td>
+        <td class="tableRead">98</td>
+      </tr>
+      <tr>
+        <td class="num">2</td>
+        <td class="tableTitle">공지사항 제목 2</td>
+        <td class="tdc"><input type="button" value="바로가기"></td>
+        <td class="tableWriter">palwe3</td>
+        <td class="tableDate">2021-01-02</td>
+        <td class="tableRead">85</td>
+      </tr>
+      <tr>
+        <td class="num">1</td>
+        <td class="tableTitle">공지사항 제목 1</td>
+        <td class="tdc"><input type="button" value="바로가기"></td>
+        <td class="tableWriter">xml23</td>
+        <td class="tableDate">2020-12-24</td>
+        <td class="tableRead">124</td>
+      </tr>
+      <tr>
+        <td colspan="4" class="chartTitle">전체 공지사항 갯수</td>
+        <td colspan="2" class="chartTitle">5개</td>
+      </tr>
+    </table>
+  </div>
+</body>
+
+</html>

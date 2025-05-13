@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let name = window.prompt('이름 입력', '홍길동');
+    if(name === null || name == '') {
+      window.alert('고객님 정확한 데이터를 입력해주세요');
+      console.log('고객님이 데이터를 정확히 입력하지 않았습니다');
+    } else {
+      document.write(`<strong> ${name}님 저희 사이트를 오신 것을 환영합니다.</strong>`);
+    }
+  </script>
+</body>
+</html>
