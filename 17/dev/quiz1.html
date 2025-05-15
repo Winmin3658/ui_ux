@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  * {
+    padding: 10px;
+  }
+  .wrap {
+    display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+  }
+  label {
+    display: inline-block;
+    width: 100px;
+  }
+  .btn {
+    margin-top: 10px;
+  }
+</style>
+
+<body>
+  <div class="wrap">
+    <form method="post" action="#">
+      <label for="x">x</label><input type="text" name="x" id="x"><br>
+      <label for="y">y</label><input type="text" name="y" id="y"><br>
+      <label for="result">result</label><input type="text" name="result" id="result" readonly><br>
+      <div class="btn">
+        <input type="button" value="+" id="btn1"> <input type="button" value="-" id="btn2"> <input type="button" value="*"
+          id="btn3"> <input type="button" value="/" id="btn4"> <input type="reset" value="reset">
+      </div>
+    </form>
+  </div>
+  <script>
+    let btnobj1 = document.querySelector("#btn1");
+    let btnobj2 = document.querySelector("#btn2");
+    let btnobj3 = document.querySelector("#btn3");
+    let btnobj4 = document.querySelector("#btn4");
+
+    const inputX = document.querySelector("#x");
+    const inputY = document.querySelector("#y");
+    const resultInput = document.querySelector("#result");
+
+    function calculate(op) {
+      const x = parseFloat(inputX.value);
+      const y = parseFloat(inputY.value);
+      let result;
+
+      if (isNaN(x) || isNaN(y)) {
+        resultInput.value = "Invalid input";
+        return;
+      }
+
+      switch (op) {
+        case '+':
+          result = x + y;
+          break;
+        case '-':
+          result = x - y;
+          break;
+        case '*':
+          result = x * y;
+          break;
+        case '/':
+          result = x / y;
+          break;
+      }
+
+      resultInput.value = result;
+    }
+
+    btn1.addEventListener("click", () => calculate('+'));
+    btn2.addEventListener("click", () => calculate('-'));
+    btn3.addEventListener("click", () => calculate('*'));
+    btn4.addEventListener("click", () => calculate('/'));
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>자바스크립트 즉시실행함수</h1>
+  <script>
+    let h1obj = document.querySelector
+    // 익명함수
+    let sum = function() {
+      return 100 + 1000;
+    }
+
+    //즉시 실행 함수
+    (function(a,b) {
+      document.write(`10 + 20 = 30`);
+    }(10,30));
+
+    let result = sum;
+    // console.log(`result = ${result}`);
+    // h1obj.innerText = `result = ${result}`;
+    document.write(`result = ${result()}`);
+  </script>
+</body>
+</html>

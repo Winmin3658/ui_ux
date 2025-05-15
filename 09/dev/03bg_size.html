@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0px;
+      box-sizing: border-box;
+    }
+    .wrap {
+      width: 950px;
+      height: 100vh;
+      border: 1px solid black;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-content: center;
+      gap: 10px;
+      padding: 10px;
+    }
+    .box {
+      width: 300px;
+      height: 300px;
+      background-color: rgba(0, 255, 255, 0.1);
+      border: 1px solid black;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+      background-image: url('./images/bg4.jpg');
+      background-repeat: no-repeat;
+      background-position: top left;
+    }
+    .bg1 {
+      background-size: auto;
+    }
+    .bg2 {
+      background-size: 200px;
+    }
+    .bg3 {
+      background-size: 50%;
+    }
+    .bg4 {
+      background-size: contain;
+    }
+    .bg5 {
+      background-size: cover;
+    }
+    .bg6 {
+      width: 300px;
+      height: 300px;
+      background-color: rgba(0, 255, 255, 0.1);
+      border: 1px solid black;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    }
+    .bg6 > img {
+      width: 300px;
+      height: 300px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="box bg1"></div>
+    <div class="box bg2"></div>
+    <div class="box bg3"></div>
+    <div class="box bg4"></div>
+    <div class="box bg5"></div>
+    <div class="bg6">
+      <img src="./../dev/images/bg5.jpg" alt="상품이미지">
+    </div>
+  </div>
+</body>
+</html>
