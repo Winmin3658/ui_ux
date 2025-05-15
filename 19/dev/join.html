@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+            background-color: #fff;
+            color: #333;
+            padding: 20px;
+        }
+
+        header {
+            margin-bottom: 20px;
+            border-bottom: 2px solid rgb(147, 146, 146);
+            padding-bottom: 10px;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+
+        .wrap {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h3 {
+            font-size: 20px;
+            margin: 30px 0 15px;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+
+        table, th, td {
+            border: 1px solid rgb(127, 123, 123);
+        }
+
+        td {
+            padding: 10px;
+            vertical-align: top;
+        }
+
+        td p {
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        table tr td:nth-child(1) {
+            font-weight: bold;
+            background-color: rgba(204, 204, 204, 0.5);
+            vertical-align: middle;
+            width: 150px;
+        }
+
+        input {
+            background-color: rgba(204, 204, 204, 0.5);
+        }
+        #addr1 {
+            width: 70px;
+        }
+        #addr2, #addr3, #addr4 {
+            width: 300px;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="email"] {
+            padding: 6px;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        input[type="button"] {
+            padding: 5px 10px;
+            font-size: 14px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 20px 10px 0 0;
+            cursor: pointer;
+            border: none;
+            background-color: #333;
+            color: #fff;
+            border-radius: 4px;
+        }
+
+        img {
+            width: 100px;
+            height: auto;
+        }
+
+        .auto-defence-table {
+            width: 100%;
+            border: none;
+        }
+
+        .auto-defence-table td {
+            border: none;
+            padding: 5px;
+        }
+
+        .auto-defence-table input {
+            width: 100%;
+            padding: 5px;
+        }
+
+        #innerClass {
+            background-color: white;
+        }
+        .button-group {
+            text-align: center;
+        }
+        #join {
+            background-color: rgb(239, 86, 181);
+            color: white;
+        }
+        #reset {
+            background-color: rgba(204, 204, 204, 0.5);
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="top-bar">
+            <span class="left">이승민</span>
+            <span class="right">회원가입</span>
+        </div>
+        <h2>회원가입</h2>
+    </header>
+    <div class="wrap">
+        <h3>사이트 이용정보 입력</h3>
+        <table>
+            <tr>
+                <td>아이디</td>
+                <td>
+                    <p>영문자, 숫자, _만 입력 가능. 최소 3자 이상 입력하세요</p><input type="text" name="id" id="id">
+                </td>
+            </tr>
+            <tr>
+                <td>비밀번호</td>
+                <td><input type="password" name="pwd" id="pwd"></td>
+            </tr>
+            <tr>
+                <td>비밀번호 확인</td>
+                <td><input type="password" name="pwdCheck" id="pwdCheck"></td>
+            </tr>
+            <tr>
+                <td>비밀번호 확인</td>
+                <td><input type="password" name="pwd" id="pwd"></td>
+            </tr>
+        </table>
+
+        <h3>개인정보 입력</h3>
+        <table>
+            <tr>
+                <td>이름</td>
+                <td><input type="text" name="name" id="name"></td>
+            </tr>
+            <tr>
+                <td>닉네임</td>
+                <td>
+                    <p>공백없이 한글,영문,숫자만 입력 가능(4글자 이상)</p>
+                    <p>닉네임을 바꾸시면 앞으로 1일 이내에는 변경할 수 없습니다.</p><input type="text" name="nickname" id="nickname">
+                </td>
+            </tr>
+            <tr>
+                <td>E-mail</td>
+                <td><input type="email" name="email" id="email"></td>
+            </tr>
+            <tr>
+                <td>가입경로</td>
+                <td><input type="radio" name="joinRoute" id="joinRoute1">인터넷 검색
+                    <input type="radio" name="joinRoute" id="joinRoute2">배너 광고
+                    <input type="radio" name="joinRoute" id="joinRoute3">관련 기사를 보고
+                    <input type="radio" name="joinRoute" id="joinRoute4">미라지 홈페이지 보고
+                    <input type="radio" name="joinRoute" id="joinRoute5">주변사람 소개
+                    <input type="radio" name="joinRoute" id="joinRoute6">기타
+                </td>
+            </tr>
+            <tr>
+                <td>전화번호</td>
+                <td><input type="text" name="tel" id="tel"></td>
+            </tr>
+            <tr>
+                <td>휴대폰번호</td>
+                <td><input type="text" name="phone" id="phone"></td>
+            </tr>
+            <tr>
+                <td>생년월일</td>
+                <td><input type="text" name="birth" id="birth" placeholder="연도-월-일"></td>
+            </tr>
+            <tr>
+                <td>주소</td>
+                <td><input type="text" name="addr1" id="addr1"><input type="button" value="주소 검색"> <br>
+                    <input type="text" name="addr2" id="addr2"><span> 기본 주소</span> <br>
+                    <input type="text" name="addr3" id="addr3"><span> 상세 주소</span> <br>
+                    <input type="text" name="addr4" id="addr4"><span> 참고 항목</span>
+                </td>
+            </tr>
+        </table>
+
+        <h3>기타 개인설정</h3>
+        <table>
+            <tr>
+                <td>카카오톡 메세지</td>
+                <td><input type="checkbox" name="kkt" id="kkt"><b>카카오톡 메세지를 받겠습니다.</b> <span style="color: red;">&gt;수신체크를 하시면 세일 소식을 가장 먼저 받아보실 수
+                        있습니다.</span></td>
+            </tr>
+            <tr>
+                <td>메일링 서비스</td>
+                <td><input type="checkbox" name="mailing" id="mailing">정보 메일을 받겠습니다.</td>
+            </tr>
+            <tr>
+                <td>정보 공개</td>
+                <td>
+                    <p>정보공개를 바꾸시면 앞으로 0일 이내에는 변경이 안 됩니다.</p><input type="checkbox" name="info" id="info">다른 분들이 나의 정보를 볼
+                    수 있도록 합니다.
+                </td>
+            </tr>
+            <tr>
+                <td>자동등록방지</td>
+                <td>
+                    <div id="innerClass">
+                        <table>
+                            <tr>
+                                <td rowspan="2"><img src="./../images/books.png" alt="자동등록방지 이미지"></td>
+                                <td style="background-color: rgba(204, 204, 204, 0.5);"><i class="fa-solid fa-volume-high"></i></td>
+                                <td rowspan="2" style="background-color: rgba(204, 204, 204, 0.5);"><input type="text" name="autoDefence" id="autoDefence"></td>
+                            </tr>
+                            <tr>
+                                <td><i class="fa-solid fa-rotate-right"></i></td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div class="button-group"><input type="submit" value="회원가입" id="join"><input type="reset" value="취소" id="reset"></div>
+    </div>
+</body>
+
+</html>

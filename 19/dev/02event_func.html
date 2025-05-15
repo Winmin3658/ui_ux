@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .wrap {
+            width: 1120px;
+            margin: 0 auto;
+            border: 3px solid red;
+        }
+        .content {
+            width: 60%;
+            margin: 0 auto;
+            border: 1px solid black;
+            text-align: center;
+            padding: 10px;
+        }
+        #img-main {
+            width: 80%;
+            border: 6px dotted red;
+        }
+        .content-img {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            border: 3px dotted black;
+        }
+        .img-sub {
+            width: 33%;
+        }
+        .img-sub:hover {
+            cursor: pointer;
+            border: 3px solid blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="content">
+            <img src="./../images/coffee-blue.jpg" alt="커피" id="img-main" onmouseover="changePic()" onmouseleave="originPic()">
+            <!-- <img src="./../images/coffee-blue.jpg" alt="커피" id="img-main" onmouseover="changePic()" onmouseleave="originPic()"> -->
+            <div class="content-img">
+                <img src="./../images/coffee-blue.jpg" alt="커피" class="img-sub">
+                <img src="./../images/coffee-gray.jpg" alt="커피" class="img-sub">
+                <img src="./../images/coffee-pink.jpg" alt="커피" class="img-sub">
+            </div>
+        </div>
+    </div>
+    <script>
+        // 객체 찾기
+        let imgMain = document.querySelector("#img-main"); // 1개
+
+        // 이벤트 설정 2번째 방법, 3번째 방법
+        // imgMain.onmouseover = () => imgMain.src = './../images/coffee-gray.jpg';
+        // imgMain.onmouseleave = originPic;
+
+        // 이벤트 처리 4번쨰 방법
+        imgMain.addEventListener('mouseover', () => {
+            imgMain.src = './../images/coffee-gray.jpg';
+        }, false);
+
+        imgMain.addEventListener('mouseleave', originPic, false);
+
+        // 이벤트 함수 설정
+        function originPic() {
+            imgMain.src = './../images/coffee-blue.jpg';
+        }
+        
+    </script>
+</body>
+</html>

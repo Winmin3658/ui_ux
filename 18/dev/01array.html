@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <script>
+        // 배열선언 (2개 numArray, charArray) : 배열끼리 합치는 기능 concat()
+        let numArray = [1, 2, 3];
+        let charArray = ["a", "b", "c", "d"];
+
+        document.write(`<h1>numArray = ${numArray}</h1> <br>`);
+        document.write(`<h1>charArray = ${charArray}</h1> <br>`);
+        document.write(`<hr>`);
+
+        let numCharArray = numArray.concat(charArray);
+        document.write(`<h1>numCharArray = ${numCharArray}</h1> <br>`);
+
+        let charNumArray = charArray.concat(numArray);
+        document.write(`<h1>charNumArray = ${charNumArray}</h1> <br>`);
+        document.write(`<hr>`);
+
+        // 배열 요소끼리 합치기 기능 join() : charArray를 조인해서 문자열로 만들기
+        let strCharArray = charArray.join();
+        document.write(`<h1>charArray.join = ${strCharArray}</h1> <br>`);
+        let joinCharArray = charArray.join("/");
+        document.write(`<h1>charArray.join = ${joinCharArray}</h1> <br>`);
+        document.write(`<hr>`);
+        // 배열에 ArrayList 처럼 내용을 추가 기능 ( push, unshift )과 삭제 기능들
+        // 추가 기능(push)
+        // let numArray = [1,2,3];
+        let countArray = numArray.push(10, 20);
+        document.write(`<h1>countArray = ${countArray}</h1> <br>`);
+        document.write(`<h1>numArray = ${numArray}</h1> <br>`);
+        document.write(`<hr>`);
+        // 삭제 기능 (unshift)
+        // let numArray = [1,2,3,10,20];
+        let count2 = numArray.unshift(100, 200);
+        document.write(`<h1>count2 = ${count2}</h1> <br>`);
+        document.write(`<h1>numArray = ${numArray}</h1> <br>`);
+        document.write(`<hr>`);
+
+        // numArray 배열에 ArrayList 처럼 내용을 삭제기능 ( pop ) 과 삭제 기능
+        // let numArray = [100,200,1,2,3,10,20]
+        let popValue = numArray.pop();
+        document.write(`<h1>popValue = ${popValue}</h1> <br>`);
+        document.write(`<h1>popValue = ${numArray}</h1> <br>`);
+        document.write(`<hr>`);
+
+        // numArray 배열에 ArrayList 처럼 내용을 삭제기능 ( pop ) 과 삭제 기능
+        // let numArray = [100,200,1,2,3,10,20]
+        let shiftValiue = numArray.shift();
+        document.write(`<h1>shiftValiue = ${shiftValiue}</h1> <br>`);
+        document.write(`<h1>popValue = ${numArray}</h1> <br>`);
+        document.write(`<hr>`);
+
+        // numArray 배열에 ArrayList 처럼 내용을 삭제기능 ( splice )
+        // let numArray = ["a", "b", "c", "d"]
+        let spliceArray = charArray.splice(2, 1);
+        document.write(`<h1>spliceArray = ${spliceArray}</h1> <br>`);
+        document.write(`<h1>charArray = ${charArray}</h1> <br>`);
+        document.write(`<hr>`);
+
+        // numArray 배열에 ArrayList 처럼 중간에서 삽입 기능 ( splice )
+        // let charArray = ["a", "b", "d"];
+        let splice2Array = charArray.splice(1, 0, "k");
+        document.write(`<h1>splice2Array = ${splice2Array}</h1> <br>`);
+        document.write(`<h1>charArray = ${charArray}</h1> <br>`);
+        document.write(`<hr>`);
+
+        // 배열 내용은 그대로이고 내가 원하는 데이터를 가져간다 slice()
+        // let charArray = ["a", "k", "b", "d"];
+        let sliceArray = charArray.slice(2);
+        document.write(`<h1>sliceArray = ${sliceArray}</h1> <br>`);
+        document.write(`<h1>charArray = ${charArray}</h1> <br>`);
+        document.write(`<hr>`);
+
+
+    </script>
+</body>
+
+</html>

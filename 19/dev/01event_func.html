@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .wrap {
+            width: 1120px;
+            margin: 0 auto;
+            border: 3px solid red;
+        }
+        .content {
+            width: 60%;
+            margin: 0 auto;
+            border: 1px solid black;
+            text-align: center;
+            padding: 10px;
+        }
+        #img-main {
+            width: 80%;
+            border: 6px dotted red;
+        }
+        .content-img {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            border: 3px dotted black;
+        }
+        .img-sub {
+            width: 33%;
+        }
+        .img-sub:hover {
+            cursor: pointer;
+            border: 3px solid blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="content">
+            <img src="./../images/coffee-blue.jpg" alt="커피" id="img-main">
+            <div class="content-img">
+                <img src="./../images/coffee-blue.jpg" alt="커피" class="img-sub">
+                <img src="./../images/coffee-gray.jpg" alt="커피" class="img-sub">
+                <img src="./../images/coffee-pink.jpg" alt="커피" class="img-sub">
+            </div>
+        </div>
+    </div>
+    <script>
+        // 객체 찾기
+        let imgMain = document.querySelector("#img-main"); // 1개
+        let imgsubList = document.querySelectorAll(".img-sub"); // 3개
+        // 객체 이벤트 설정
+        for(let i = 0; i < imgsubList; length++) {
+            imgsubList[i].onmouseover = function(e) {
+            imgMain.src = imgsubList[i].src;
+            eventMessage(imgMain.src);
+            };
+        }
+        /* imgMain.onclick = function(event) {
+            console.log(`이미지 파일 위치: ${this.src}`);
+            console.log(`이미지 파일 위치: ${imgMain.src}`);
+            console.log(`this: ${this}`);
+        }; */
+        imgMain.onclick = event => {
+            console.log(`화살표 이미지 파일 위치: ${this.src}`);
+            console.log(`화살표 이미지 파일 위치: ${imgMain.src}`);
+            console.log(`화살표 this: ${this}`);
+        };
+
+        function eventMessage(name) {
+            console.log(`${name} 상품을 선택하셨습니다. 장바구니 추가, 합계 계산 100문장`);
+        }
+    </script>
+</body>
+</html>
