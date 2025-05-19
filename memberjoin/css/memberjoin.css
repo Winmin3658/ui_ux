@@ -1,0 +1,141 @@
+
+    /* 공통 설정 */
+    @charset "utf-8";
+    * {
+        box-sizing: border-box;
+        margin: 0;
+    }
+
+    body {
+        font-family: sans-serif;
+    }
+
+    .wrap {
+        margin: 0 auto;
+        width: 1000px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    /* 자신의 정보 출력 */
+    .headline {
+        display: flex;
+        justify-content: space-between;
+        margin-left: 50px;
+    }
+    /* 회원가입 정보 */
+    .signUp {
+        margin-left: 50px;
+        width: 90%;
+        border: 3px solid blue;
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 1.5rem;
+        margin: 20px 0 5px;
+    }
+
+    h2 {
+        font-size: 1rem;
+    }
+
+    table {
+        width: 100%;
+        margin-bottom: 30px;
+        border-collapse: collapse;
+        font-size: 0.75rem;
+    }
+
+    table, td {
+        border: 1px solid rgb(174, 174, 174);
+    }
+
+    td {
+        padding: 10px 0px 10px 10px;
+    }
+
+    td.label {
+        font-weight: bold;
+        background-color: rgba(226, 226, 226, 0.3);
+        width: 15%;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+        background-color: rgba(226, 226, 226, 0.3);
+        border: 1px solid rgb(188, 188, 188);
+        height: 25px;
+        line-height: 25px;
+    }
+
+    input.w-15 { width: 15%; }
+    input.w-50 { width: 50%; }
+    input.w-70 { width: 70%; }
+    input.w-10 { width: 10%; }
+    .margin-b-5 { margin-bottom: 5px; }
+
+    .radio-group,
+    .checkbox-group {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .radio-group label,
+    .checkbox-group label {
+        margin-right: 10px;
+    }
+    td.auto-prevent {
+        display: flex;
+        align-items: start;
+        gap: 10px;
+    }
+    td.auto-prevent > img {
+        width: 100px;
+        border: 1px dotted black;
+    }
+    .fa-icon-group {
+        display: flex;
+        margin-left: 0;
+        flex-direction: column;
+    }
+
+    .fa-icon-group > i:first-child {
+        margin-bottom: 5px;
+    }
+
+    #checkHuman {
+        width: 150px;
+        height: 50px;
+        font-size: x-large;
+    }
+
+    i {
+        font-size: 1.3rem;
+        text-align: center;
+        width: 30px;
+        border: 1px solid black;
+    }
+
+    .buttons {
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 40px;
+    }
+
+    .btn-primary {
+        background-color: rgb(255, 53, 154);
+        color: white;
+        width: 10%;
+        height: 30px;
+        border: none;
+    }
+
+    .btn-secondary {
+        width: 10%;
+        height: 30px;
+    }
