@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 전체 설정 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        ul {
+            list-style: none;
+        }
+        /* 메뉴 시작 */
+        ul.menu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: beige;
+        }
+        ul.menu > li > a {
+            display: inline-block;
+            padding: 10px;
+            width: 100px;
+            border: 1px solid black;
+            text-align: center;
+        }
+        ul.menu > li > a:hover {
+            background-color: aquamarine;
+        }
+        ul.menu > li.dropdown:hover > ul.dropdown-content {
+            display: flex;
+            flex-direction: column;
+        }
+        ul.dropdown-content {
+            position: absolute;
+            display: none;
+        }
+        ul.dropdown-content a {
+            display: block;
+            padding: 10px;
+            width: 100px;
+            border: 1px solid black;
+            text-align: center;
+        }
+        ul.dropdown-content a:hover {
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <ul class="menu">
+        <li><a href="#">home</a></li>
+        <li><a href="#">home</a></li>
+        <li><a href="#">home</a></li>
+        <li class="dropdown">
+            <a href="#" class="dropbtn">home</a>
+            <ul class="dropdown-content">
+                <li><a href="">sub</a></li>
+                <li><a href="">sub</a></li>
+                <li><a href="">sub</a></li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>

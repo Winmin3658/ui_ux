@@ -24,6 +24,9 @@ function onLoad() {
     let addr1 = document.querySelector("#addr1");
     let checkHuman = document.querySelector("#checkHuman");
     let checkHumanMsg = document.querySelector("#checkHumanMsg");
+    let pathRadios = document.querySelectorAll("input[name='path']");
+    let selectedPath = document.querySelector("#selectedPath");
+
 
     id.addEventListener("blur", () => {
         validate(id, idPattern, "영문자, 숫자, _만 입력 가능. 최소 3자이상 12자이하 입력하세요.");
@@ -52,6 +55,13 @@ function onLoad() {
     });
     nickname.addEventListener("blur", () => {
         validate(nickname, nicknamePattern, "공백없이 한글,영문,숫자만 입력 가능 (한글2자, 영문4자 이상)")
+    });
+    pathRadios.forEach(radio => {
+        radio.addEventListener("change", () => {
+            let label = document.querySelector(`label[for='${radio.id}']`);
+            selectedPath.textContent = `선택한 경로: ${label.textContent}`;
+            selectedPath.style.color = "blue";
+        });
     });
     tel.addEventListener("blur", () => {
         validate(tel, telPattern, "하이픈(-)을 포함하여 작성해주세요")

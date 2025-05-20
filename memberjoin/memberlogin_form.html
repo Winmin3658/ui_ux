@@ -93,13 +93,21 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><input type="text" name="id" id="id" placeholder="11번가 아이디"></td>
-                    <td rowspan="2" id="loginBtnTd"><a href="#" onclick="window.alert('로그인 버튼 클릭')">로그인</a></td>
-                    
-                </tr>
-                <tr>
-                    <td colspan="2"><input type="password" name="pw" id="pw"></td>
-                </tr>
+                    <td colspan="2">
+                      <input type="text" name="id" id="id" placeholder="11번가 아이디"><br>
+                      <span id="idMsg"></span>
+                    </td>
+                    <td rowspan="2" id="loginBtnTd">
+                      <a href="#" onclick="window.alert('로그인 버튼 클릭')">로그인</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">
+                      <input type="password" name="pw" id="pw"><br>
+                      <span id="pwMsg"></span>
+                    </td>
+                  </tr>
+                  
                 <tr>
                     <td colspan="2"><input type="checkbox" name="saveId" id="saveId"> 아이디저장</td>
                     <td>OTP 로그인 <input type="checkbox" name="otpLogin" id="otpLogin"></td>
@@ -116,6 +124,28 @@
             </table>
         </div>
     </div>
+    <script>
+  const idInput = document.getElementById("id");
+  const pwInput = document.getElementById("pw");
+  const idMsg = document.getElementById("idMsg");
+  const pwMsg = document.getElementById("pwMsg");
+
+  idInput.addEventListener("blur", () => {
+    if (idInput.value.trim() === "") {
+      idMsg.textContent = "아이디를 입력해주세요.";
+    } else {
+      idMsg.textContent = "";
+    }
+  });
+
+  pwInput.addEventListener("blur", () => {
+    if (pwInput.value.trim() === "") {
+      pwMsg.textContent = "비밀번호를 입력해주세요.";
+    } else {
+      pwMsg.textContent = "";
+    }
+  });
+    </script>
 </body>
 
 </html>
