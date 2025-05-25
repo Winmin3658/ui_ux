@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>MIRE Main</title>
+    <style>
+        /* 전체 설정 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 2rem 6.5rem;
+            font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 메뉴 시작 */
+        #title {
+            margin-right: 50px;
+        }
+
+        ul.menu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80px;
+            border: 1px dotted black;
+            background-color: beige;
+        }
+
+        ul.menu>li>a {
+            display: inline-block;
+            padding: 10px;
+            width: 100px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        ul.menu>li>a:hover {
+            background-color: #777777a3;
+        }
+
+        ul.menu>li.dropdown:hover>ul.dropdown-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        ul.dropdown-content {
+            position: absolute;
+            display: none;
+            z-index: 1000;
+        }
+
+        ul.dropdown-content a {
+            display: block;
+            padding: 10px;
+            width: 100px;
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        ul.dropdown-content a:hover {
+            background-color: rgba(128, 128, 128, 0.3);
+        }
+
+        #facebook {
+            display: inline-block;
+            margin-left: 50px;
+            margin-right: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* 전체 레이아웃   */
+        #content {
+            width: 1000px;
+            margin: 10px auto;
+            border-radius: 20px;
+            position: relative;
+        }
+
+        /* 슬라이쇼 이미지 처리   */
+        #slide_show {
+            width: 100%;
+            height: 300px;
+            position: relative;
+            border-radius: 20px;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            border-radius: 20px;
+        }
+
+        /* 네이게이션 처리 */
+        #navgateleft {
+            position: absolute;
+            bottom: 50%;
+            left: 10%;
+            transform: translate(-50%, 50%);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: rgba(128, 128, 128);
+            z-index: 1;
+        }
+
+        #navgateright {
+            position: absolute;
+            bottom: 50%;
+            right: 10%;
+            transform: translate(50%, 50%);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: rgba(128, 128, 128);
+            z-index: 1;
+        }
+
+        #navgateleft:hover,
+        #navgateright:hover {
+            color: rgb(240, 248, 255);
+            cursor: pointer;
+        }
+
+        /* indicator 처리   */
+        #indicator {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.8);
+            z-index: 1;
+        }
+
+        #indicator i {
+            /* font-size: 1.5rem; */
+            padding: 5px;
+            font-weight: 700;
+        }
+
+        #indicator i:hover {
+            color: rgb(255, 255, 255);
+        }
+
+        /* indicator 활성화 배경색 */
+        .active {
+            color: rgb(249, 150, 28);
+        }
+
+        .container {
+            display: flex;
+            justify-content: row;
+            gap: 40px;
+        }
+
+        .aside,
+        .nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 25%;
+            background-color: rgba(150, 222, 41, 0.728);
+            text-align: center;
+        }
+
+        .footer {
+            background-color: rgba(204, 179, 147, 0.781);
+            width: 100%;
+            height: 20vh;
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        li {
+            list-style-type: none;
+            margin-bottom: 5px;
+        }
+
+        li>input {
+            width: 100%;
+            height: 30px;
+            border-style: none;
+            padding-left: 10px;
+        }
+
+        #id {
+            width: 70%;
+        }
+
+        #idEmail {
+            width: 30%;
+        }
+
+        #year,
+        #month,
+        #day {
+            width: 31%;
+            margin-right: 2%;
+            padding-left: 10px;
+        }
+
+        #day {
+            margin-right: 0;
+        }
+
+        #phNum {
+            width: 100%;
+            height: 30px;
+            margin-bottom: 5px;
+            border-style: none;
+        }
+
+        #tel {
+            flex: 1;
+            height: 30px;
+            border: none;
+            padding-left: 10px;
+        }
+
+        #passNum {
+            width: 130px;
+            height: 30px;
+            margin-bottom: 5px;
+            text-align: center;
+            background-color: rgb(59, 176, 59);
+            color: white;
+            border-style: none;
+        }
+
+        #join {
+            width: 100%;
+            height: 30px;
+            margin-bottom: 5px;
+            text-align: center;
+            background-color: rgb(59, 176, 59);
+            color: white;
+            border-style: none;
+        }
+
+        #passNum:hover,
+        #join:hover {
+            background-color: green;
+        }
+
+        #checkNum,
+        #country {
+            width: 100%;
+            height: 30px;
+            margin-bottom: 5px;
+            border-style: none;
+            padding-left: 10px;
+        }
+
+        .wrap {
+            background-color: rgba(150, 222, 41, 0.728);
+            padding: 20px;
+            width: 50%;
+        }
+
+        ul {
+            background-color: whitesmoke;
+            padding: 10px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .form-row>select {
+            height: 30px;
+            font-size: 14px;
+            padding: 2px 8px;
+            width: 32%;
+            box-sizing: border-box;
+            -webkit-appearance: none;
+            /* iOS/Safari */
+            -moz-appearance: none;
+            /* Firefox */
+            appearance: none;
+            /* 기타 브라우저 */
+            border: none;
+        }
+
+        .form-group>select {
+            height: 30px;
+            font-size: 14px;
+            padding: 2px 8px;
+            width: 100%;
+            box-sizing: border-box;
+            -webkit-appearance: none;
+            /* iOS/Safari */
+            -moz-appearance: none;
+            /* Firefox */
+            appearance: none;
+            /* 기타 브라우저 */
+            border: none;
+        }
+
+        .form-row>input {
+            width: 33%;
+            height: 30px;
+        }
+
+        .tel-row {
+            display: flex;
+        }
+
+        .tel-row input {
+            flex: 1;
+            /* 입력창 너비 자동 조정 */
+        }
+
+        /* login */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .wrap2 {
+            margin: 0 auto;
+            background-color: rgba(150, 222, 41, 0.728);
+            padding: 23px;
+            width: 50%;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        table {
+            background-color: whitesmoke;
+            /* ✅ 넓은 배경 적용 */
+            padding: 30px;
+            border-radius: 12px;
+        }
+
+        td {
+            vertical-align: middle;
+        }
+
+        .wrap2>input[type="text"],
+        .wrap2>input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+        }
+
+        input[type="button"] {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        td[colspan="2"] {
+            text-align: center;
+        }
+
+        td[rowspan="2"] input[type="button"] {
+            height: 100%;
+            width: 100%;
+        }
+
+        .wrap2>input[type="button"] {
+            margin-right: 10px;
+        }
+
+        .button-list {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .button-list input[type="button"] {
+            margin: 0 10px;
+        }
+
+        #login2 {
+            width: 100px;
+            height: 70px;
+            background-color: rgb(251, 72, 72);
+            font-size: large;
+            color: white;
+        }
+
+        .error-msg {
+            color: red;
+            font-size: 12px;
+            margin-top: 4px;
+            display: block;
+        }
+
+        .input-row {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            /* input과 span 사이 간격 */
+        }
+
+        .error-msg {
+            color: red;
+            font-size: 12px;
+            white-space: nowrap;
+            /* 줄바꿈 방지 */
+        }
+
+        #id2, #pwd2 {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="menu">
+        <i class="fa-solid fa-camera-retro" id="title"> MIRE PHOTO</i>
+        <li><a href="#">menu</a></li>
+        <li><a href="#">menu</a></li>
+        <li><a href="#">menu</a></li>
+        <li class="dropdown">
+            <a href="#" class="dropbtn">menu</a>
+            <ul class="dropdown-content">
+                <li><a href="">sub</a></li>
+                <li><a href="">sub</a></li>
+                <li><a href="">sub</a></li>
+            </ul>
+        </li>
+        <i class="fa-brands fa-facebook" id="facebook"></i>
+        <i class="fa-brands fa-twitter" id="twitter"></i>
+    </ul>
+    <div class="session">
+        <div id="content">
+            <div id="slide_show">
+                <a href="#"><img src="./../dev/img/california-9577976_1280.jpg" alt="#"></a>
+                <a href="#"><img src="./../dev/img/cat-1193275_1280.jpg" alt="#"></a>
+                <a href="#"><img src="./../dev/img/dog-4988985_1280.jpg" alt="#"></a>
+                <a href="#"><img src="./../dev/img/sailboat-9597523_1280.jpg" alt="#"></a>
+            </div>
+            <i class="fa-solid fa-circle-chevron-left" id="navgateleft"></i>
+            <i class="fa-solid fa-circle-chevron-right" id="navgateright"></i>
+            <div id="indicator">
+                <a href="#" class="active"><i class="fa-solid fa-circle"></i></a>
+                <a href="#"><i class="fa-solid fa-circle"></i></a>
+                <a href="#"><i class="fa-solid fa-circle"></i></a>
+                <a href="#"><i class="fa-solid fa-circle"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="nav">
+            <h2>NAV</h2>
+        </div>
+        <div class="wrap">
+            <h1>MIRE PICTURE</h1>
+            <ul>
+                <p>아이디</p>
+                <li><input type="text" id="id" name="id"><input id="idEmail" name="idEmail"
+                        placeholder="@naver.com"><span id="idMsg"></span>
+                </li>
+                <p>비밀번호</p>
+                <li><input type="text" id="password" name="password"><span id="pwdMsg"></span></li>
+                <p>비밀번호 재확인</p>
+                <li><input type="text" id="pwdCheck" name="pwdCheck"><span id="pwdCheckMsg"></span></li>
+                <p>이름</p>
+                <li><input type="text" id="name" name="name"><span id="nameMsg"></span></li>
+                <p>생년월일</p>
+                <div class="form-row">
+                    <input type="text" id="year" name="year" placeholder="년(4자)" maxlength="4" />
+                    <select id="month" name="month">
+                        <option>월</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                    </select>
+                    <input type="text" id="day" name="day" placeholder="일" maxlength="2" />
+                    <span id="yearMsg"></span><span id="dayMsg"></span>
+                </div>
+                <div class="form-group">
+                    <label>성별</label><br>
+                    <select class="select" id="gender" name="gender">
+                        <option>성별</option>
+                        <option>남자</option>
+                        <option>여자</option>
+                    </select>
+                </div>
+                <p>본인 확인 이메일<span style="color: darkgray;">(선택)</span></p>
+                <li><input type="text" id="email" name="email" placeholder="선택 입력"><span id="emailMsg"></span></li>
+                <p>휴대전화</p>
+                <p><input type="text" id="country" name="country" placeholder="대한민국 82+"><span id="countryMsg"></span>
+                </p>
+                <p class="tel-row">
+                    <input type="text" placeholder="전화번호 입력" id="tel" name="tel">
+                    <button id="passNum">인증번호 받기</button>
+                    <span id="telMsg"></span>
+                </p>
+                <p><input type="text" placeholder="인증번호를 입력하세요" id="checkNum" name="checkNum"><span
+                        id="checkNumMsg"></span></p>
+                <li><button type="submit" id="join">가입하기</button></li>
+            </ul>
+        </div>
+
+        <div class="wrap2" id="loginClass" style="display:none;">
+            <h2>로그인</h2>
+            <table>
+                <tr class="customer-button">
+                    <td colspan="2" style="text-align: left;">
+                        <label><input type="radio" name="customer" id="customer" checked> 회원</label>
+                        <label><input type="radio" name="customer" id="guest"> 비회원(주문조회)</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" name="id2" id="id2" placeholder="11번가 아이디">
+                        <span id="idError2" class="error-msg"></span>
+                    </td>
+                    <td rowspan="2"><input type="button" value="로그인" id="login2"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" name="pwd2" id="pwd2" placeholder="비밀번호">
+                        <span id="pwdError2" class="error-msg"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="radio" name="idSave2" id="idSave2">아이디 저장</td>
+                    <td><span>OTP 로그인 </span><input type="radio" name="otpLogin2" id="otpLogin2"></td>
+                </tr>
+            </table>
+            <div class="button-list">
+                <input type="button" value="회원가입"><input type="button" value="아이디 찾기"><input type="button"
+                    value="비밀번호 찾기">
+            </div>
+        </div>
+        <div class="aside">
+            <h2>ASIDE</h2>
+        </div>
+    </div>
+    <div class="footer">
+        <h2>FOOTER</h2>
+    </div>
+    <script>
+        document.getElementById('pwdCheck').addEventListener('input', function () {
+            const pwd = document.getElementById('password').value;
+            const pwdCheck = this.value;
+            const msgSpan = document.getElementById('pwdCheckMsg');
+
+            if (pwdCheck !== pwd) {
+                msgSpan.innerHTML = "비밀번호가 일치하지 않습니다.";
+                msgSpan.style.color = "red";
+            } else {
+                msgSpan.innerHTML = "비밀번호가 일치합니다.";
+                msgSpan.style.color = "green";
+            }
+        });
+
+        document.getElementById('id').addEventListener('input', function () {
+            const value = this.value;
+            const msg = document.getElementById('idMsg');
+            const valid = /^[a-zA-Z0-9]{3,12}$/;
+            msg.innerHTML = valid.test(value) ? "✅ 올바른 아이디입니다." : "❌ 3~12자의 영문/숫자만 사용하세요.";
+        });
+
+        document.getElementById('password').addEventListener('input', function () {
+            const value = this.value;
+            const msg = document.getElementById('pwdMsg');
+            const valid = /^.{6,8}$/;
+            msg.innerHTML = valid.test(value) ? "✅ 사용 가능한 비밀번호입니다." : "❌ 6~8자 사이로 입력하세요.";
+        });
+
+        document.getElementById('pwdCheck').addEventListener('input', function () {
+            const pwd = document.getElementById('password').value;
+            const value = this.value;
+            const msg = document.getElementById('pwdCheckMsg');
+            msg.innerHTML = (value === pwd) ? "✅ 비밀번호가 일치합니다." : "❌ 비밀번호가 일치하지 않습니다.";
+        });
+
+        document.getElementById('name').addEventListener('input', function () {
+            const value = this.value;
+            const msg = document.getElementById('nameMsg');
+            const valid = /^[가-힣a-zA-Z]{1,}$/;
+            msg.innerHTML = valid.test(value) ? "✅ 올바른 이름입니다." : "❌ 한글 또는 영문 1자 이상 입력하세요.";
+        });
+
+        document.getElementById('year').addEventListener('input', function () {
+            const value = this.value;
+            const msg = document.getElementById('yearMsg');
+            const valid = /^\d{4}$/;
+            msg.innerHTML = valid.test(value) ? "✅ 올바른 형식입니다." : "❌ 숫자 4자리로 입력하세요.";
+        });
+
+        document.getElementById('day').addEventListener('input', function () {
+            const value = parseInt(this.value);
+            const msg = document.getElementById('dayMsg');
+            const valid = value >= 1 && value <= 31;
+            msg.innerHTML = valid ? "✅ 유효한 날짜입니다." : "❌ 1~31 사이 숫자만 입력하세요.";
+        });
+
+        document.getElementById('email').addEventListener('input', function () {
+            const value = this.value;
+            const msg = document.getElementById('emailMsg');
+            const valid = /.+@.+/;
+            msg.innerHTML = valid.test(value) ? "✅ 유효한 이메일 형식입니다." : "❌ @를 포함한 이메일을 입력하세요.";
+        });
+
+        document.getElementById('country').addEventListener('input', function () {
+            const value = this.value;
+            const msg = document.getElementById('countryMsg');
+            const valid = /^\d+\+$/;
+            msg.innerHTML = valid.test(value) ? "✅ 올바른 형식입니다." : "❌ 숫자 뒤에 +를 붙이세요. 예: 82+";
+        });
+
+        document.getElementById('tel').addEventListener('input', function () {
+            const value = this.value;
+            const msg = document.getElementById('telMsg');
+            const valid = /^\d{3}-\d{4}-\d{4}$/;
+            msg.innerHTML = valid.test(value) ? "✅ 올바른 전화번호입니다." : "❌ 000-0000-0000 형식으로 입력하세요.";
+        });
+
+        let generatedCode = ""; // 전역 변수로 인증번호 저장
+
+        // 인증번호 생성 및 alert 표시
+        document.getElementById('passNum').addEventListener('click', function () {
+            // 4자리 숫자 랜덤 생성 (ex. 1234)
+            generatedCode = Math.floor(1000 + Math.random() * 9000).toString();
+            alert('인증번호: ' + generatedCode);
+        });
+
+        // 인증번호 입력 감지 및 비교
+        document.getElementById('checkNum').addEventListener('input', function () {
+            const value = this.value;
+            const msg = document.getElementById('checkNumMsg');
+            if (value === "") {
+                msg.innerHTML = "";
+            } else if (value === generatedCode) {
+                msg.innerHTML = "✅ 인증번호가 일치합니다.";
+            } else {
+                msg.innerHTML = "❌ 인증번호가 올바르지 않습니다.";
+            }
+        });
+
+        document.getElementById('join').addEventListener('click', function () {
+            document.querySelector('.wrap').style.display = 'none';
+            document.getElementById('loginClass').style.display = 'flex';
+        });
+
+        document.getElementById("login2").addEventListener("click", function () {
+            const idInput = document.getElementById("id2");
+            const pwdInput = document.getElementById("pwd2");
+            const idError = document.getElementById("idError2");
+            const pwdError = document.getElementById("pwdError2");
+
+            let isValid = true;
+
+            // ID 유효성 검사
+            if (idInput.value.length < 3 || idInput.value.length > 12) {
+                idError2.innerHTML = "아이디는 3자 이상 12자 이하로 입력하세요.";
+                isValid = false;
+            } else {
+                idError2.innerHTML = "";
+            }
+
+            // 비밀번호 유효성 검사
+            if (pwdInput.value.length < 6 || pwdInput.value.length > 8) {
+                pwdError2.innerHTML = "비밀번호는 6자 이상 8자 이하로 입력하세요.";
+                isValid = false;
+            } else {
+                pwdError2.innerHTML = "";
+            }
+
+            if (isValid) {
+                alert("로그인 시도 중...");
+                // 실제 로그인 처리 로직 연결 가능
+            }
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            //1 객체 찾기
+            const content = document.querySelector("#content");           //회전목마 전체 레이아웃
+            const imgList = document.querySelectorAll("#slide_show img"); //회전목마 이미지배열 리스트 노드
+            const navgateleft = document.querySelector("#navgateleft");   //회전목마 왼쪽 네비게이트
+            const navgateright = document.querySelector("#navgateright"); //회전목마 오른쪽 네비게이트
+            const indicatorList = document.querySelectorAll("#indicator > a"); //회전목마 인디게이터 a
+
+            let list = [1, 0, 0, 0];
+            let timerId; // 타이머 핸들값
+            //함수 시간에 따라서 이미지 화면 1, 인디게이터 1 선택이 돼서 화면에 보여줘야 한다. 
+            function listArray() {
+                for (let i = 0; i < list.length; i++) {
+                    imgList[i].style.zIndex = list[i];
+                }
+                for (let i = 0; i < indicatorList.length; i++) {
+                    indicatorList[i].classList.remove('active');
+                }
+                let index = list.indexOf(1);
+                indicatorList[index].classList.add('active');
+            }
+            listArray();
+
+            //왼쪽 네비게이터 클릭 왼쪽 화면이동
+            navgateleft.addEventListener("click", () => {
+                //list = [1,0,0,0]; 왼쪽에서 빼서 오른쪽 입력=> [0,0,0,1]
+                let value = list.shift();
+                list.push(value);
+                listArray();
+            });
+            //오른쪽 네비게이터 클릭 오른쪽 화면이동
+            navgateright.addEventListener("click", () => {
+                //list = [1,0,0,0]; 오른쪽에서 빼서 왼쪽 입력=> [0,1,0,0]
+                list.unshift(list.pop());
+                listArray();
+            });
+
+            // 3초마다 navgateright 기능을 불러줌
+            function startTimer() {
+                timerId = setInterval(() => {
+                    list.unshift(list.pop());
+                    listArray();
+                }, 3000);
+            }
+            startTimer();
+            // contain 영역에 마우스가 올라가면 타이머가 멈추게 한다
+            content.addEventListener("mouseenter", () => clearInterval(timerId));
+
+            // contain 영역에 마우스가 빠져나가면 타이머를 작동시킨다
+            content.addEventListener("mouseleave", () => startTimer());
+
+            // indicator 클릭하면 해당되는 화면으로 이동해야 한다
+            for (let i = 0; i < indicatorList.length; i++) {
+                indicatorList[i].addEventListener("click", () => {
+                    list = [0, 0, 0, 0];
+                    list[i] = 1;
+                    listArray();
+                });
+            }
+
+        }); // end of DOMContentLoaded
+
+
+
+    </script>
+</body>
+
+</html>

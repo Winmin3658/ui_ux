@@ -42,7 +42,6 @@
         }
 
         td {
-            padding: 10px;
             vertical-align: middle;
         }
 
@@ -94,6 +93,27 @@
             font-size: large;
             color: white;
         }
+
+        .error-msg {
+            color: red;
+            font-size: 12px;
+            margin-top: 4px;
+            display: block;
+        }
+
+        .input-row {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            /* input과 span 사이 간격 */
+        }
+
+        .error-msg {
+            color: red;
+            font-size: 12px;
+            white-space: nowrap;
+            /* 줄바꿈 방지 */
+        }
     </style>
 </head>
 
@@ -107,27 +127,66 @@
         <table>
             <tr>
                 <div class="customer-button">
-                    <td colspan="2" style="text-align: left;"><input type="radio" name="customer" id="customer">회원
+                    <td colspan="2" style="text-align: left;">
+                        <input type="radio" name="customer" id="customer" checked>회원
                         <input type="radio" name="customer" id="guest">비회원(주문조회)
                     </td>
                 </div>
             </tr>
             <tr>
-                <td><input type="text" name="id" id="id" placeholder="11번가 아이디"></td>
+                <td>
+                    <input type="text" name="id" id="id" placeholder="11번가 아이디">
+                    <span id="idError" class="error-msg"></span>
+                </td>
                 <td rowspan="2"><input type="button" value="로그인" id="login"></td>
             </tr>
             <tr>
-                <td><input type="text" name="pwd" id="pwd"></td>
+                <td>
+                    <input type="text" name="pwd" id="pwd" placeholder="비밀번호">
+                    <span id="pwdError" class="error-msg"></span>
+                </td>
             </tr>
             <tr>
                 <td><input type="radio" name="idSave" id="idSave">아이디 저장</td>
-                <td><span>OTP 로그인</span><input type="radio" name="otpLogin" id="otpLogin"></td>
+                <td><span>OTP 로그인 </span><input type="radio" name="otpLogin" id="otpLogin"></td>
             </tr>
         </table>
         <div class="button-list">
             <input type="button" value="회원가입"><input type="button" value="아이디 찾기"><input type="button" value="비밀번호 찾기">
         </div>
     </div>
+
+    <script>
+        document.getElementById("login").addEventListener("click", function () {
+            const idInput = document.getElementById("id");
+            const pwdInput = document.getElementById("pwd");
+            const idError = document.getElementById("idError");
+            const pwdError = document.getElementById("pwdError");
+
+            let isValid = true;
+
+            // ID 유효성 검사
+            if (idInput.value.length < 3 || idInput.value.length > 12) {
+                idError.innerHTML = "아이디는 3자 이상 12자 이하로 입력하세요.";
+                isValid = false;
+            } else {
+                idError.innerHTML = "";
+            }
+
+            // 비밀번호 유효성 검사
+            if (pwdInput.value.length < 6 || pwdInput.value.length > 8) {
+                pwdError.innerHTML = "비밀번호는 6자 이상 8자 이하로 입력하세요.";
+                isValid = false;
+            } else {
+                pwdError.innerHTML = "";
+            }
+
+            if (isValid) {
+                alert("로그인 시도 중...");
+                // 실제 로그인 처리 로직 연결 가능
+            }
+        });
+    </script>
 </body>
 
 </html>
